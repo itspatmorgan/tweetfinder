@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Express StackComTweets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+</head>
+
+<body>
+  <header class="header"></header>
+
+  <div id="twitter-app">
+    
+    <section class="tweet-search">
+      <h1>Get Twitter Timelines</h1>
+
+      <div id="search-area">
+        <b>Enter Twitter Username</b>
+        <input id="twitter-handle" type="text" required autofocus>
+        <button id="search-btn">Search</button>
+      </div>
+    </section>
+
+    <section class="tweets-container">
+      <ul id="tweets-list"></ul>
+    </section>
+  </div>
+
+  <footer class="footer"></footer>
+  
+  <!-- Templates -->
+  <script id="tweet-template" type="text/template">
+    <h2 class="tweet__user">Name: <%= user.screen_name %></h2>
+    <p class="tweet__text">Text: <%= text %></p>
+    <p class="tweet__date">Date: <%= created_at %></p>
+  </script>
+
+  <!-- Libraries -->
+  <script src="/js/jquery-1.12.3-min.js"></script>
+  <script src="/js/underscore-min.js"></script>
+  <script src="/js/backbone-min.js"></script>
+
+  <!-- App code -->
+  <script src="/js/app.js"></script>
+</body>
+</html>
