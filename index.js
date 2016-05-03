@@ -10,8 +10,6 @@ var tweet_bot = new Twitter({
   access_token_secret: process.env.ACCESS_TOKEN_SECRET
 });
 
-console.log(tweet_bot);
-
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
@@ -19,8 +17,11 @@ app.get('/tweets', function(req, res) {
   var params = { screen_name: req.query.name, count: 1 };
 
   tweet_bot.get('statuses/user_timeline', params, function(error, tweets, response){
-    if(error) throw error;
-    res.json(tweets);
+    if(error) {
+      res.send([]);
+    } else {
+      res.json(tweets);
+    }
   });
 });
 

@@ -1,48 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>Express StackComTweets</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+  <meta name="description" content="A simple application for retrieving Twitter timelines">
+  <title>StackComTweets</title>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+  <link rel="stylesheet" href="stylesheets/main.css">
 </head>
 
 <body>
-  <header class="header"></header>
+  <!-- Header -->
+  <div class="header">
+    <div class="home-menu pure-menu pure-menu-horizontal">
+      <a class="pure-menu-heading" href="">StackComTweets</a>
 
-  <div id="twitter-app">
-    
-    <section class="tweet-search">
-      <h1>Get Twitter Timelines</h1>
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item">
+          <a href="https://github.com/patrickmmorgan/stackcomtweets" class="pure-menu-link" target="_blank">README &amp; Source</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Content Area -->
+  <div class="content-wrapper">    
+    <!-- Backbone App Area -->
+    <div class="content">
+      <div id="twitter-app" class="pure-g">
+        <div class="l-box pure-u-1">
+          <h2 class="content-head is-center">Let's find some Tweets, shall we?</h2>
+        </div>
 
-      <div id="search-area">
-        <b>Enter Twitter Username</b>
-        <input id="twitter-handle" type="text" required autofocus>
-        <button id="search-btn">Search</button>
+        <div class="tweet-search l-box pure-u-1 pure-u-md-2-5">
+          <form id="search-form" class="pure-form pure-form-stacked">
+              <h2>Enter Twitter Username</h2>
+              <input id="twitter-handle" type="text" placeholder="eg. deadmau5">
+              <button class="pure-button" type="submit">Search</button>
+          </form>
+        </div>
+
+        <div id="tweets-list" class="l-box pure-u-1 pure-u-md-3-5"></div>
       </div>
-    </section>
-
-    <section class="tweets-container">
-      <ul id="tweets-list"></ul>
-    </section>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <div class="footer l-box is-center">
+    Made by Patrick Morgan for the team at StackCommerce in Venice
   </div>
 
-  <footer class="footer"></footer>
-  
   <!-- Templates -->
   <script id="tweet-template" type="text/template">
-    <h2 class="tweet__user">Name: <%= user.screen_name %></h2>
-    <p class="tweet__text">Text: <%= text %></p>
-    <p class="tweet__date">Date: <%= created_at %></p>
+    <p class="tweet__text"><%= text %></p>
+    <p class="tweet__date"><%= created_at %></p>
+    <p>Retweets: <%= retweet_count %></p>
+    <p>Favorites: <%= favorite_count %></p>
+  </script>
+
+  <script id="empty-set" type="text/template">
+    <h4>Sorry, no tweets were found for that username</h4>
+    <p>Double check the name and try again</p>
+    <img class="pure-img-responsive" width="100" src="http://placekitten.com/100/100">
+  </script>
+
+  <script id="welcome-placeholder" type="text/template">
+    <h4>Hey, welcome to StackComTweets</h4>
+    <p>This is where your results will show up. Super cool, right?</p>
+    <img class="pure-img-responsive" width="100" src="http://placekitten.com/100/100">
   </script>
 
   <!-- Libraries -->
   <script src="/js/jquery-1.12.3-min.js"></script>
   <script src="/js/underscore-min.js"></script>
   <script src="/js/backbone-min.js"></script>
-
   <!-- App code -->
   <script src="/js/app.js"></script>
 </body>
+
 </html>
