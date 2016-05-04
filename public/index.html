@@ -17,12 +17,8 @@
   <div class="header">
     <div class="home-menu pure-menu pure-menu-horizontal">
       <a class="pure-menu-heading" href="#">TweetFinder</a>
-
-      <ul class="pure-menu-list">
-        <li class="pure-menu-item">
-          <a href="https://github.com/patrickmmorgan/stackcomtweets" class="pure-menu-link" target="_blank">README &amp; Source</a>
-        </li>
-      </ul>
+      <i class="fa fa-twitter-square" aria-hidden="true"></i>
+      <a href="https://github.com/patrickmmorgan/stackcomtweets" class="pure-menu-heading heading--right" target="_blank">README &amp; Source</a>
     </div>
   </div>
   
@@ -30,16 +26,16 @@
   <div class="content-wrapper">    
     <!-- Backbone App Area -->
     <div class="content">
-      <div id="twitter-app" class="pure-g">
+      <div id="twitter-app" class="app pure-g">
         <div class="l-box pure-u-1">
           <h2 class="content-head is-center">Let's find some Tweets, shall we?</h2>
         </div>
 
         <div class="tweet-search l-box pure-u-1 pure-u-md-2-5">
-          <form id="search-form" class="pure-form pure-form-stacked">
+          <form id="search-form" class="pure-form pure-form-stacked tweet__form">
               <h2>Enter Twitter Username</h2>
-              <input id="twitter-handle" type="text" placeholder="eg. deadmau5">
-              <button class="pure-button" type="submit">Search</button>
+              <input id="twitter-handle" class="u-full-width" type="text" placeholder="eg. deadmau5">
+              <button class="pure-button u-full-width" type="submit">Search</button>
           </form>
         </div>
 
@@ -61,8 +57,9 @@
     <div class="user-info">
       <div class="user-name"><%= username %></div>
       <a class="user-handle" target="_blank" href=<%= profile_url %>>@<%= handle %></a>
-      <i class="fa fa-twitter" aria-hidden="true"></i>
     </div>
+
+    <i class="fa fa-twitter" aria-hidden="true"></i>
 
     <p class="tweet__text"><%= text %></p>
     <p class="tweet__stats">

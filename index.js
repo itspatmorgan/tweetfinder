@@ -10,11 +10,23 @@ var tweet_bot = new Twitter({
   access_token_secret: process.env.ACCESS_TOKEN_SECRET
 });
 
+// Dummy response for development
+var dummy_data = [{
+  "created_at": "5/3/2016, 2:19:56 PM",
+  "favorite_count": 438,
+  "handle": "deadmau5",
+  "image": "http://pbs.twimg.com/profile_images/679987420780077056/QvpFhc5D_normal.jpg",
+  "profile_url": "https://t.co/cnNrVJOo1H",
+  "retweet_count": 109,
+  "text": "coll lil article via @rollingstone bout me n vidya games n some other shit.  https://t.co/ijN1wCSGgy",
+  "username":"dead mow cinco"
+}];
+
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/tweets', function(req, res) {
-  var params = { screen_name: req.query.name, count: 1 };
+  var params = { screen_name: req.query.name, count: 10 };
 
   tweet_bot.get('statuses/user_timeline', params, function(error, tweets, response){
     if(error) {

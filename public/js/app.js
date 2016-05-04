@@ -14,8 +14,6 @@ var TweetsCollection = Backbone.Collection.extend({
   parse: function(response) {
     var results = [];
 
-    console.log(response);
-
     for (var i = 0; i < response.length; i++) {
       var model = {
         'text': this.parseText(response[i].text),
@@ -31,6 +29,7 @@ var TweetsCollection = Backbone.Collection.extend({
       results.push(model);
     }
 
+    // return results;
     return results;
   },
 

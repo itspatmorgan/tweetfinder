@@ -9,9 +9,11 @@
 }
 
 body {
-  line-height: 1.7em;
-  color: #7f8c8d;
+  line-height: 1.2;
+  color: #292f33;
   font-size: 13px;
+  font-family: helvetica neue;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1,
@@ -21,7 +23,7 @@ h4,
 h5,
 h6,
 label {
-  color: #34495e;
+  color: #292f33;
   margin-top: 0;
 }
 
@@ -39,6 +41,33 @@ a:hover {
   opacity: .8;
 }
 
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+
+
+/*---------------------
+ #UTILITIES
+---------------------*/
+
+.u-pad-right {
+  padding-right: 15px;
+}
+
+.u-full-width {
+  width: 100%;
+}
+
+.l-box {
+  padding: 0 2em 2em;
+}
+
+.is-center {
+  text-align: center;
+}
+
 
 
 /*---------------------
@@ -48,6 +77,7 @@ a:hover {
 .tweet-search {
   max-width: 400px;
   margin: 0 auto;
+  margin-bottom: 2em;
 }
 
 .tweets {
@@ -56,9 +86,11 @@ a:hover {
 
 .tweet {
   color: black;
-  padding: 25px;
+  padding: 25px 30px;
   border: 1px solid #ccc;
+  border-radius: 3px;
   box-shadow: 0 0 5px #ccc;
+  margin-bottom: 2em;
 }
 
 .avatar {
@@ -69,7 +101,9 @@ a:hover {
 }
 
 .user-info {
+  position: relative;
   display: inline-block;
+  top: -8px;
 }
 
 .user-info .fa {
@@ -90,7 +124,7 @@ a.user-handle {
 }
 
 .tweet__text {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
 }
 
@@ -98,19 +132,31 @@ a.user-handle {
   float: right;
 }
 
-.tweet .fa-retweet {
+
+
+/*---------------------
+ #ICONS
+---------------------*/
+
+.fa-twitter {
+  float: right;
+  position: relative;
+  font-size: 35px;
+  top: 8px;
+}
+
+.fa-twitter,
+.fa-twitter-square {
+  color: #55acee;
+}
+
+.fa-retweet {
   color: darkblue;
 }
 
-.tweet .fa-heart {
+.fa-heart {
   color: darkred;
 }
-
-.u-pad-right {
-  padding-right: 15px;
-}
-
-
 
 
 
@@ -122,35 +168,17 @@ a.user-handle {
   text-align: center;
   padding: 25px;
   border: 1px solid #ccc;
+  border-radius: 3px;
   box-shadow: 0 0 5px #ccc;
-  background-color: #eee;
+  background-color: #e1e8ed;
 }
 
 .empty-set .fa {
   font-size: 75px;
 }
 
-.fa-twitter,
-.fa-twitter-square {
-  color: #55acee;
-}
-
-
-/*---------------------
- #LAYOUT
----------------------*/
-
-.l-box {
-  padding: 2em;
-}
-
-.l-box-lrg {
-  padding: 2em;
-  border-bottom: 1px solid rgba(0, 0, 0, .1);
-}
-
-.is-center {
-  text-align: center;
+.empty-set p {
+  margin-bottom: 2em;
 }
 
 
@@ -159,18 +187,14 @@ a.user-handle {
  #FORMS
 ---------------------*/
 
-.pure-form label {
-  margin: 1em 0 0;
-  font-weight: bold;
-  font-size: 100%;
-}
-
 .pure-form input[type] {
   border: 2px solid #ddd;
   box-shadow: none;
-  font-size: 100%;
+  font-size: 120%;
   width: 100%;
   margin-bottom: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 
@@ -180,17 +204,12 @@ a.user-handle {
 ---------------------*/
 
 .pure-button {
-  background-color: #1f8dd6;
+  background-color: #55acee;
   color: #fff;
-  padding: 0.5em 2em;
-  border-radius: 5px;
-}
-
-a.pure-button-primary {
-  background: #fff;
-  color: #1f8dd6;
+  padding: 1em 2em;
   border-radius: 5px;
   font-size: 120%;
+  font-weight: bold;
 }
 
 
@@ -202,9 +221,17 @@ a.pure-button-primary {
 .home-menu {
   padding: .5em;
   text-align: center;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .10);
-  background: #2d3e50;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+  background: #292f33;
   color: #fff;
+  margin-bottom: 2em;
+}
+
+.home-menu .fa {
+  position: relative;
+  top: 6px;
+  color: #fff;
+  font-size: 35px;
 }
 
 .home-menu a {
@@ -219,7 +246,7 @@ a.pure-button-primary {
 }
 
 .home-menu .pure-menu-heading {
-  color: white;
+  color: #fff;
   font-weight: 400;
   font-size: 120%;
 }
@@ -234,6 +261,7 @@ a.pure-button-primary {
   position: relative;
   width: 100%;
   background: #fff;
+  min-height: 700px;
 }
 
 /* Main content headers (<h2>) */
@@ -242,11 +270,6 @@ a.pure-button-primary {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin: 1em 0;
-}
-
-/* Content sub-headers (<h3>) */
-.content-subhead {
-  color: #1f8dd6;
 }
 
 
@@ -260,8 +283,9 @@ a.pure-button-primary {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background: #eee;
+  background: #e1e8ed;
   padding: 1em 0;
+  box-shadow: 0 -2px 10px #fff;
 }
 
 
@@ -285,21 +309,10 @@ a.pure-button-primary {
     text-align: left;
   }
 
-  .home-menu ul {
+  .heading--right {
     float: right;
+    position: relative;
+    right: .5em;
+    top: 6px;
   }
-
-  .l-box-lrg {
-    border: none;
-  }
-}
-
-
-
-/*---------------------
- #MediaQuery - LARGE
----------------------*/
-
-@media (min-width: 78em) {
-  
 }
