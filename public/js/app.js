@@ -14,12 +14,18 @@ var TweetsCollection = Backbone.Collection.extend({
   parse: function(response) {
     var results = [];
 
+    console.log(response);
+
     for (var i = 0; i < response.length; i++) {
       var model = {
         'text': this.parseText(response[i].text),
         'created_at': this.parseDate(response[i].created_at),
         'retweet_count': response[i].retweet_count,
-        'favorite_count': response[i].favorite_count
+        'favorite_count': response[i].favorite_count,
+        'username': response[i].user.name,
+        'handle': response[i].user.screen_name,
+        'profile_url': response[i].user.url,
+        'image': response[i].user.profile_image_url
       };
 
       results.push(model);
