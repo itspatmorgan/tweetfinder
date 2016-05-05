@@ -31,12 +31,34 @@
           <h2 class="content-head is-center">Let's find some Tweets, shall we?</h2>
         </div>
 
-        <div class="tweet-search l-box pure-u-1 pure-u-md-2-5">
-          <form id="search-form" class="pure-form pure-form-stacked tweet__form">
-              <h2>Enter Twitter Username</h2>
-              <input id="twitter-handle" class="u-full-width" type="text" placeholder="eg. deadmau5">
-              <button class="pure-button u-full-width" type="submit">Search</button>
+        <div class="search l-box pure-u-1 pure-u-md-2-5">
+          <form id="search-form" class="search__form pure-form pure-form-stacked ">
+            <h2>Enter Twitter Handle</h2>
+            <input id="twitter-handle" class="u-full-width" type="text" placeholder="@kanyewest etc...">
+            <button class="pure-button u-full-width" type="submit">Search</button>
           </form>
+
+          <div class="search__suggestions">
+            <h3>A few suggestions to get you started:</h3>
+            <p class="js-suggestions">
+              <a href="#">@hardwick</a>,
+              <a href="#">@deadmau5</a>,
+              <a href="#">@BarackObama</a>,
+              <a href="#">@taylorswift13</a>,
+              <a href="#">@justinbieber</a>,
+              <a href="#">@jimmyfallon</a>,
+              <a href="#">@Drake</a>,
+              <a href="#">@Oprah</a>,
+              <a href="#">@BillGates</a>,
+              <a href="#">@KingJames</a>,
+              <a href="#">@Adele</a>,
+              <a href="#">@espn</a>,
+              <a href="#">@nytimes</a>,
+              <a href="#">@EmWatson</a>,
+              <a href="#">@kanyewest</a>,
+              <a href="#">@Beyonce</a>
+            </p>
+          </div>
         </div>
 
         <div id="tweets-list" class="tweets l-box pure-u-1 pure-u-md-3-5"></div>
@@ -51,24 +73,31 @@
 
   <!-- Templates -->
   <script id="tweet-template" type="text/template">
-    
-    <img class="avatar" src=<%= image %> alt="user image">
+    <div class="tweet__head">
+      <img class="avatar" src=<%= image %> alt="user image">
 
-    <div class="user-info">
-      <div class="user-name"><%= username %></div>
-      <a class="user-handle" target="_blank" href=<%= profile_url %>>@<%= handle %></a>
+      <div class="user-info">
+        <div class="user-name"><%= username %></div>
+        <a class="user-handle" target="_blank" href=<%= profile_url %>>@<%= handle %></a>
+      </div>
+
+      <i class="fa fa-twitter" aria-hidden="true"></i>
     </div>
-
-    <i class="fa fa-twitter" aria-hidden="true"></i>
-
-    <p class="tweet__text"><%= text %></p>
-    <p class="tweet__stats">
-      <span><%= created_at %></span>
-      <span class="tweet__nums">
-        <span class="u-pad-right"><i class="fa fa-retweet" aria-hidden="true"></i> <%= retweet_count %></span>
-        <span><i class="fa fa-heart" aria-hidden="true"></i> <%= favorite_count %></span>
-      </span>
-    </p>
+    
+    <div class="tweet__body">
+      <p class="tweet__text"><%= text %></p>
+      <p class="tweet__date"><%= created_at %></p>
+      <div class="tweet__stats">
+        <span class="stat">
+          <i class="fa fa-retweet" aria-hidden="true"></i>
+          <%= retweet_count %>
+        </span>
+        <span class="stat ">
+          <i class="fa fa-heart" aria-hidden="true"></i> 
+          <%= favorite_count %>
+        </span>
+      </div>
+    </div>
   </script>
 
   <script id="empty-set" type="text/template">

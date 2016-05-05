@@ -1,3 +1,14 @@
+/* Twitter Brand Colors */
+/* Blue: #292f33 */
+/* Red: #e81c4f */
+/* Green: #19cf86 */
+/* Dark Grey: #e1e8ed */
+/* Mid Grey: /
+/* Light Grey: #66757f */
+/* White: #fff */
+/* Black: #292f33 */
+
+
 /*---------------------
  #BASE
 ---------------------*/
@@ -16,31 +27,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-label {
-  color: #292f33;
-  margin-top: 0;
-}
-
-.pure-img-responsive {
-  max-width: 100%;
-  height: auto;
-}
-
-a {
-  color: #55acee;
-  text-decoration: none;
-}
-
-a:hover {
-  opacity: .8;
-}
-
 .app {
   max-width: 960px;
   margin: 0 auto;
@@ -49,12 +35,52 @@ a:hover {
 
 
 /*---------------------
- #UTILITIES
+ #CONTENT
 ---------------------*/
 
-.u-pad-right {
-  padding-right: 15px;
+.content-wrapper {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  background: -webkit-linear-gradient(top, #fff 300px, #e1e8ed 800px);
+  min-height: 800px;
+  height: 100%;
 }
+
+/* Main content headers (<h2>) */
+.content-head {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 1em 0;
+}
+
+
+
+/*---------------------
+ #TEXT & LINKS
+---------------------*/
+
+h1, h2, h3, h4, h5, h6, label {
+  color: #292f33;
+  margin-top: 0;
+}
+
+a {
+  /*Twitter Blue*/
+  color: #55acee;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: .8;
+}
+
+
+
+/*---------------------
+ #UTILITIES
+---------------------*/
 
 .u-full-width {
   width: 100%;
@@ -71,43 +97,54 @@ a:hover {
 
 
 /*---------------------
- #TWEETS
+ #SEARCH
 ---------------------*/
 
-.tweet-search {
+.search {
   max-width: 400px;
   margin: 0 auto;
+}
+
+.search__form {
   margin-bottom: 2em;
 }
+
+.search__suggestions {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/*---------------------
+ #TWEETS
+---------------------*/
 
 .tweets {
   padding-top: 0;
 }
 
 .tweet {
-  color: black;
+  color: #292f33;
+  background-color: #fff;
   padding: 25px 30px;
-  border: 1px solid #ccc;
+  border: 1px solid #eee;
   border-radius: 3px;
-  box-shadow: 0 0 5px #ccc;
-  margin-bottom: 2em;
+  box-shadow: 0 0 10px rgba(200,200,200,.4);
+  margin: 0 auto 2em;
+  max-width: 600px;
 }
 
 .avatar {
   display: inline-block;
   border-radius: 3px;
   margin-right: 12px;
-  box-shadow: -2px 2px 4px #ccc;
+  box-shadow: -2px 2px 4px #eee;
 }
 
 .user-info {
   position: relative;
   display: inline-block;
   top: -8px;
-}
-
-.user-info .fa {
-  float: right;
+  line-height: 1.5;
 }
 
 .user-name {
@@ -115,27 +152,25 @@ a:hover {
   font-size: 15px;
 }
 
-a.user-handle {
-  color: #66757f;
-}
-
-.tweet__stats {
+a.user-handle,
+.tweet__date {
+  /* Twitter light grey*/
   color: #66757f;
 }
 
 .tweet__text {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
 }
 
-.tweet__nums {
-  float: right;
+.stat {
+  padding-right: 15px;
 }
 
 
 
 /*---------------------
- #ICONS
+ #ICONS & IMAGES
 ---------------------*/
 
 .fa-twitter {
@@ -147,15 +182,23 @@ a.user-handle {
 
 .fa-twitter,
 .fa-twitter-square {
+  /* Twitter blue*/
   color: #55acee;
 }
 
 .fa-retweet {
-  color: darkblue;
+  /*Twitter green */
+  color: #19cf86;
 }
 
 .fa-heart {
-  color: darkred;
+  /*Twitter red*/
+  color: #e81c4f;
+}
+
+.pure-img-responsive {
+  max-width: 100%;
+  height: auto;
 }
 
 
@@ -169,8 +212,9 @@ a.user-handle {
   padding: 25px;
   border: 1px solid #ccc;
   border-radius: 3px;
-  box-shadow: 0 0 5px #ccc;
   background-color: #e1e8ed;
+  margin: 0 auto 2em;
+  max-width: 600px;
 }
 
 .empty-set .fa {
@@ -188,7 +232,7 @@ a.user-handle {
 ---------------------*/
 
 .pure-form input[type] {
-  border: 2px solid #ddd;
+  border: 1px solid #ccc;
   box-shadow: none;
   font-size: 120%;
   width: 100%;
@@ -204,7 +248,8 @@ a.user-handle {
 ---------------------*/
 
 .pure-button {
-  background-color: #55acee;
+  /* Twitter Blue */
+  background-color: #55acee; 
   color: #fff;
   padding: 1em 2em;
   border-radius: 5px;
@@ -223,7 +268,6 @@ a.user-handle {
   text-align: center;
   box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
   background: #292f33;
-  color: #fff;
   margin-bottom: 2em;
 }
 
@@ -238,39 +282,13 @@ a.user-handle {
   color: #fff;
 }
 
-.home-menu li a:hover,
-.home-menu li a:focus {
-  background: none;
-  border: none;
-  color: #eee;
-}
-
 .home-menu .pure-menu-heading {
-  color: #fff;
   font-weight: 400;
-  font-size: 120%;
+  font-size: 100%;
 }
 
 
 
-/*---------------------
- #CONTENT
----------------------*/
-
-.content-wrapper {
-  position: relative;
-  width: 100%;
-  background: #fff;
-  min-height: 700px;
-}
-
-/* Main content headers (<h2>) */
-.content-head {
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 1em 0;
-}
 
 
 
@@ -285,7 +303,7 @@ a.user-handle {
   width: 100%;
   background: #e1e8ed;
   padding: 1em 0;
-  box-shadow: 0 -2px 10px #fff;
+  border-top: 1px solid #ccc;
 }
 
 
@@ -304,9 +322,17 @@ a.user-handle {
     padding: 1em;
     margin-bottom: 70px;
   }
+  
+  .tweet__text {
+    font-size: 16px;
+  }
 
   .home-menu {
     text-align: left;
+  }
+
+  .home-menu .pure-menu-heading {
+    font-size: 120%
   }
 
   .heading--right {
