@@ -128,16 +128,16 @@ TweetFinder.Search = (function() {
     }
   });
 
-  var setEvents = function(callback) {
+  var setEvents = function(ajax_func) {
     $('#search-form').submit(function(e){
       e.preventDefault();
-      callback();
+      ajax_func();
     });
 
     $('.js-suggestions a').on('click', function(){
       var text = $(this).text();
       $('#twitter-handle').val(text);
-      callback();
+      ajax_func();
     });
   };
 
