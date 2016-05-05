@@ -1,7 +1,7 @@
 # TweetFinder App
 #### A simple app for getting a Twitter user's last 25 tweets
 
-<http://stackcomtweets.herokuapp.com>
+<http://tweetfinder.herokuapp.com>
 
 **Server Side Tech**: Node.js, Express, Twitter Node Module <br>
 **Client Side Tech**: Backbone.js, Underscore, jQuery, Pure.css, FontAwesome
@@ -54,13 +54,22 @@ The app will then use those environment variables to communicate with the Twitte
 
 ### Remote Setup on Heroku
 
-1. Create a new app on Heroku
-2. Install the Heroku toolbelt <https://toolbelt.heroku.com/>
-3. `heroku login` --> Follow prompts
-4. `cd my_project_directory`
-5. `heroku git:remote -a name_of_app`
-6. `git add .`
-7. `git commit -am "making waves"`
-8. `git push heroku master`
+Basics
+
+- Install the Heroku toolbelt <https://toolbelt.heroku.com/>
+- `heroku login` --> Follow prompts
+
+Link local proj with remote
+
+- `cd my_project_directory`
+- `heroku create`
+- `git add .`
+- `git commit -am "committing for Heroku"`
+- `git push heroku master`
+
+Set config variables on the remote environment
+
+- `heroku config:set ENVIRONMENT_VAR=reallylongstringfromtwitter`
+- OR you can set config vars on heroku.com under the settings tab for your app
 
 
